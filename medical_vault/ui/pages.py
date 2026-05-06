@@ -13,26 +13,25 @@ class DashboardPage(QWidget):
     def __init__(self) -> None:
         super().__init__()
         layout = QVBoxLayout(self)
+        self.setObjectName("PageContainer")
+        layout.setContentsMargins(32, 32, 32, 24)
+        layout.setSpacing(8)
         layout.addStretch()
 
-        title = QLabel("MEDICAL HYBRID ENCRYPTION SYSTEM")
-        title.setStyleSheet(
-            "color: #38bdf8; font-size: 30px; font-weight: bold; letter-spacing: 1px;"
-        )
+        title = QLabel("Medical Hybrid Encryption System")
+        title.setObjectName("DashboardTitle")
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(title)
 
-        sub = QLabel("Advanced Cyber-Security Protocol Suite")
-        sub.setStyleSheet("color: #64748b; font-size: 16px;")
+        sub = QLabel("Clinical-Grade Data Protection Suite")
+        sub.setObjectName("DashboardSubtitle")
         sub.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(sub)
 
         layout.addStretch()
 
         dev_label = QLabel("Developed by:\nAbdul-Qader Abbas & Hussein Riyadh")
-        dev_label.setStyleSheet(
-            "color: #475569; font-size: 13px; font-weight: bold; margin: 30px;"
-        )
+        dev_label.setObjectName("DeveloperLabel")
         dev_label.setAlignment(Qt.AlignmentFlag.AlignRight)
         layout.addWidget(dev_label)
 
@@ -40,29 +39,35 @@ class DashboardPage(QWidget):
 class EncryptionPage(QWidget):
     def __init__(self) -> None:
         super().__init__()
+        self.setObjectName("PageContainer")
         layout = QVBoxLayout(self)
+        layout.setContentsMargins(32, 28, 32, 24)
+        layout.setSpacing(12)
 
-        lbl = QLabel("ENCRYPTION MODULE")
-        lbl.setStyleSheet(
-            "color: #38bdf8; font-size: 20px; font-weight: bold; padding: 10px;"
-        )
+        lbl = QLabel("Encryption Center")
+        lbl.setObjectName("PageTitle")
         layout.addWidget(lbl)
 
+        pass_label = QLabel("Master Password")
+        pass_label.setObjectName("FieldLabel")
+        layout.addWidget(pass_label)
+
         self.enc_pass = QLineEdit()
-        self.enc_pass.setPlaceholderText("Set Master Security Password...")
+        self.enc_pass.setObjectName("InputField")
+        self.enc_pass.setPlaceholderText("Enter a master password")
         self.enc_pass.setEchoMode(QLineEdit.EchoMode.Password)
         layout.addWidget(self.enc_pass)
 
-        self.btn_select = QPushButton("SELECT MEDICAL DATA")
+        self.btn_select = QPushButton("Select Medical Data File")
+        self.btn_select.setObjectName("SecondaryAction")
         layout.addWidget(self.btn_select)
 
-        self.btn_run = QPushButton("EXECUTE ENCRYPTION & HIDE KEY")
-        self.btn_run.setStyleSheet(
-            "background-color: #38bdf8; color: black; font-weight: bold; padding: 12px;"
-        )
+        self.btn_run = QPushButton("Encrypt and Hide Key")
+        self.btn_run.setObjectName("PrimaryAction")
         layout.addWidget(self.btn_run)
 
         self.enc_log = QTextEdit()
+        self.enc_log.setObjectName("LogConsole")
         self.enc_log.setReadOnly(True)
         layout.addWidget(self.enc_log)
 
@@ -70,28 +75,34 @@ class EncryptionPage(QWidget):
 class DecryptionPage(QWidget):
     def __init__(self) -> None:
         super().__init__()
+        self.setObjectName("PageContainer")
         layout = QVBoxLayout(self)
+        layout.setContentsMargins(32, 28, 32, 24)
+        layout.setSpacing(12)
 
-        lbl = QLabel("DECRYPTION PORTAL")
-        lbl.setStyleSheet(
-            "color: #10b981; font-size: 20px; font-weight: bold; padding: 10px;"
-        )
+        lbl = QLabel("Decryption Center")
+        lbl.setObjectName("PageTitle")
         layout.addWidget(lbl)
 
+        pass_label = QLabel("Master Password")
+        pass_label.setObjectName("FieldLabel")
+        layout.addWidget(pass_label)
+
         self.dec_pass = QLineEdit()
-        self.dec_pass.setPlaceholderText("Enter Master Password...")
+        self.dec_pass.setObjectName("InputField")
+        self.dec_pass.setPlaceholderText("Enter your master password")
         self.dec_pass.setEchoMode(QLineEdit.EchoMode.Password)
         layout.addWidget(self.dec_pass)
 
-        self.btn_select = QPushButton("LOAD SECURE FILE")
+        self.btn_select = QPushButton("Load Secure File")
+        self.btn_select.setObjectName("SecondaryAction")
         layout.addWidget(self.btn_select)
 
-        self.btn_run = QPushButton("DECRYPT & RESTORE DATA")
-        self.btn_run.setStyleSheet(
-            "background-color: #10b981; color: black; font-weight: bold; padding: 12px;"
-        )
+        self.btn_run = QPushButton("Decrypt and Restore Data")
+        self.btn_run.setObjectName("PrimaryAction")
         layout.addWidget(self.btn_run)
 
         self.dec_log = QTextEdit()
+        self.dec_log.setObjectName("LogConsole")
         self.dec_log.setReadOnly(True)
         layout.addWidget(self.dec_log)

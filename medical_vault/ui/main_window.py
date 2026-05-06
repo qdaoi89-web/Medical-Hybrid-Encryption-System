@@ -52,16 +52,16 @@ class QaderCyberVault(QMainWindow):
         sidebar.setObjectName("Sidebar")
         sidebar.setFixedWidth(220)
         sidebar_layout = QVBoxLayout(sidebar)
+        sidebar_layout.setContentsMargins(0, 0, 0, 12)
+        sidebar_layout.setSpacing(4)
 
-        logo = QLabel("QADER\nCYBER")
-        logo.setStyleSheet(
-            "color: #38bdf8; font-weight: bold; font-size: 22px; margin: 20px;"
-        )
+        logo = QLabel("MEDICAL\nVAULT")
+        logo.setObjectName("BrandTitle")
         sidebar_layout.addWidget(logo)
 
-        self.btn_home = QPushButton("  DASHBOARD")
-        self.btn_enc = QPushButton("  ENCRYPTION ENGINE")
-        self.btn_dec = QPushButton("  DECRYPTION PORTAL")
+        self.btn_home = QPushButton("Dashboard")
+        self.btn_enc = QPushButton("Encryption Center")
+        self.btn_dec = QPushButton("Decryption Center")
 
         for btn in (self.btn_home, self.btn_enc, self.btn_dec):
             btn.setObjectName("NavBtn")
@@ -73,6 +73,7 @@ class QaderCyberVault(QMainWindow):
         main_layout.addWidget(sidebar)
 
         self.pages = QStackedWidget()
+        self.pages.setObjectName("ContentPane")
         main_layout.addWidget(self.pages)
         self.pages.addWidget(self.dashboard_page)
         self.pages.addWidget(self.encryption_page)
@@ -95,11 +96,11 @@ class QaderCyberVault(QMainWindow):
 
     def _log(self, console, message: str, is_error: bool = False) -> None:
         color = (
-            "#ef4444"
+            "#b42318"
             if is_error
-            else "#22c55e"
+            else "#1e7e34"
             if "SUCCESS" in message
-            else "#38bdf8"
+            else "#2f6ea8"
         )
         timestamp = time.strftime("%H:%M:%S")
         console.append(
